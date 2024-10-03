@@ -1,23 +1,6 @@
-# LLMに関する各種サービスやモデルの試用と評価
+# Azure環境の整備
 
-# 目的
-
-様々なLLMが発表されているので、それらを試して評価したい。
-
-プロプライエタリなLLMとしては、OpenAI、Anthropic、Google各社が発表している。
-
-また、オープンなモデルに関しては、Hugging Faceから利用できる。
-
-それぞれ実行方法が異なるので、まとめておく。
-
-# 前提
-
-再現するには以下のようなスキルが必要
-
-- UNIXコマンドの扱いができる
-- Pythonによる簡単なスクリプトの記述ができる
-
-# Azure OpenAI
+## Azure OpenAI
 
 OpenAIのモデルに関しては、Microsoft Azure上でデプロイできる。
 
@@ -102,35 +85,3 @@ westus3 (US) West US 3
 ローカル環境にPythonのopenaiライブラリーをインストールし、APIキーを環境変数として設定すれば、PythonコードからAPIを利用することができる。
 
 実際の使用にあたっては、いくつかパラメータを調整した。temperatureは0、max_tokensは2048とした。
-
-# Amazon Bedrock
-
-AWSでは、OpenAI以外の、様々なモデルを利用することができる。Anthropicが出しているClaudeだけでなく、CohereやMeta, Mistral AIなどが出しているオープンなモデルもある。
-
-![llms/image5.png](llms/image5.png)
-
-AWSのリージョンごとに使えるモデルは異なる。例えば、2024年7月23日現在、Claude 3 Opusが使えるのはus-west-2(オレゴン)のみであった。また、Claude 3.5 Sonnetが使えるのは、us-east-1(バージニア北部)のみであった。
-
-# Google Gemini
-
-Geminiは、Google AI StudioにGoogleアカウントでログインし、APIキーを取得すれば、使えるようになる。
-
-![llms/image8.png](llms/image8.png)
-
-# Hugging Face
-
-Hugging Faceでは、多くのオープンなモデル公開されている。ローカル環境に十分なGPUを備えたコンピュータがあれば、これらを実行することができる。
-
-たとえば、[https://huggingface.co/elyza/Llama-3-ELYZA-JP-8B](https://huggingface.co/elyza/Llama-3-ELYZA-JP-8B)
-
-にあるPythonのサンプルコードを実行してみる。torchやtransformersなどのPythonライブラリがインストールされていれば実行可能である。
-
-モデルが、ローカルの.cache/huggingface/hub/以下に、ダウンロードされる。
-
-GPUにロードされ、推論が実行されたあと、GPUは解放される。
-
-サービスとして立ち上げておくには、Pythonでロードした後、問い合わせを待つようにする。
-
-ここでは、Flaskを使って、エンドポイントを立ち上げておく。
-
-# API

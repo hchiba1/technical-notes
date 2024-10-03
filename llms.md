@@ -23,9 +23,9 @@ OpenAIのモデルに関しては、Microsoft Azure上でデプロイできる�
 
 Microsoft Azure上で、OpenAIの利用を申請していれば、OpenAIのモデルをデプロイして使うことができる。
 
-![llms/image6.png)
+![llms/image6.png](llms/image6.png)
 
-![llms/image7.png)
+![llms/image7.png](llms/image7.png)
 
 Azureのリソース作成する際には、どのリージョンに作成するかを検討する必要がある。
 
@@ -79,19 +79,19 @@ westus3 (US) West US 3
 
 リージョンによって、どれくらいのレイテンシーが発生するかは[マイクロソフトのドキュメント](https://learn.microsoft.com/en-us/azure/networking/azure-network-latency?tabs=APAC%2CJapan)に記載がある。日本と北米あるいはオーストラリアとの間では、およそ100ms以上のレイテンシーが発生するが、LLMのレスポンスが数秒以上かかることを考えれば、さほど気にはならないだろう。
 
-![llms/image1.png)
+![llms/image1.png](llms/image1.png)
 
 以下は、いくつかのOpenAIリソースを作成した状態である。リソース名がエンドポイントのURLに使われることに注意して名前を付ける必要がある。[テナント名]-[リージョン名]としておけば、分かりやすく、かぶることも少ないだろう。リソースが所属するリソースグループについては、必ずしもリソースと同じである必要はない。ここでは簡単のため、japaneastリージョンにopenaiリソースグループを1つ作成し、OpenAIリソースは全てそこに所属させることにした。作成した各リソースについて、異なるAPIキーが発行されることに注意する。
 
-![llms/image4.png)
+![llms/image4.png](llms/image4.png)
 
 モデル名だけを見ていると、混乱することがある。小文字のモデル名とバージョンの組み合わせで確認する必要がある。例えばGPT3.5-Turbo(バージョン0613)の最大入力は4,096だが、バージョン1106だと16,385となっている。GPT3.5-Turbo-16k(バージョン0613)の最大入力が16,385だったが、同等の性能で半額になっているので、GPT3.5-Turbo-16kを選ぶ理由はない思われる。これを知らないと、つい-16kが付いたモデルを高性能だと思って選択してしまうかもしれない。同じ性能を持つモデルであっても、バージョンアップするごとに、費用が安くなっている。各モデルの費用は、以下の通りである (100万トークンあたりの料金)。
 
-![llms/image3.png)
+![llms/image3.png](llms/image3.png)
 
 実際に利用可能なAPIを立ち上げるには、Azureポータルから、OpenAI Studioという別のサイトに移動して、特定のモデルをデプロイする必要がある。
 
-![llms/image2.png)
+![llms/image2.png](llms/image2.png)
 
 ここで注意すべきことがあるとすれば、クオータの調整である。デフォルトの設定だと、クオータにすぐ達してしまい、レスポンスが返ってこないことがある。そこで、「1分当たりのトークンレート制限」を最大に設定した。デプロイの種類で「標準」と「グローバル標準」が選べるときは、「グローバル標準」を選択した。これによって、トラフィックが分散され、クオータが増えることになる。
 
@@ -107,7 +107,7 @@ westus3 (US) West US 3
 
 AWSでは、OpenAI以外の、様々なモデルを利用することができる。Anthropicが出しているClaudeだけでなく、CohereやMeta, Mistral AIなどが出しているオープンなモデルもある。
 
-![llms/image5.png)
+![llms/image5.png](llms/image5.png)
 
 AWSのリージョンごとに使えるモデルは異なる。例えば、2024年7月23日現在、Claude 3 Opusが使えるのはus-west-2(オレゴン)のみであった。また、Claude 3.5 Sonnetが使えるのは、us-east-1(バージニア北部)のみであった。
 
@@ -115,7 +115,7 @@ AWSのリージョンごとに使えるモデルは異なる。例えば、2024�
 
 Geminiは、Google AI StudioにGoogleアカウントでログインし、APIキーを取得すれば、使えるようになる。
 
-![llms/image8.png)
+![llms/image8.png](llms/image8.png)
 
 # Hugging Face
 

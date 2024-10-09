@@ -1,6 +1,6 @@
 # LLMに関する各種サービスやモデルの試用と評価
 
-# 目的
+## 目的
 
 様々なLLMが発表されているので、それらを試して評価したい。
 
@@ -10,14 +10,14 @@
 
 それぞれ実行方法が異なるので、まとめておく。
 
-# 前提
+## 前提
 
 再現するには以下のようなスキルが必要
 
 - UNIXコマンドの扱いができる
 - Pythonによる簡単なスクリプトの記述ができる
 
-# Azure OpenAI
+## Azure OpenAI
 
 OpenAIのモデルに関しては、Microsoft Azure上でデプロイできる。
 
@@ -103,7 +103,7 @@ westus3 (US) West US 3
 
 実際の使用にあたっては、いくつかパラメータを調整した。temperatureは0、max_tokensは2048とした。
 
-# Amazon Bedrock
+## Amazon Bedrock
 
 AWSでは、OpenAI以外の、様々なモデルを利用することができる。Anthropicが出しているClaudeだけでなく、CohereやMeta, Mistral AIなどが出しているオープンなモデルもある。
 
@@ -111,13 +111,13 @@ AWSでは、OpenAI以外の、様々なモデルを利用することができ�
 
 AWSのリージョンごとに使えるモデルは異なる。例えば、2024年7月23日現在、Claude 3 Opusが使えるのはus-west-2(オレゴン)のみであった。また、Claude 3.5 Sonnetが使えるのは、us-east-1(バージニア北部)のみであった。
 
-# Google Gemini
+## Google Gemini
 
 Geminiは、Google AI StudioにGoogleアカウントでログインし、APIキーを取得すれば、使えるようになる。
 
 ![llms/image8.png](llms/image8.png)
 
-# Hugging Face
+## Hugging Face
 
 Hugging Faceでは、多くのオープンなモデル公開されている。ローカル環境に十分なGPUを備えたコンピュータがあれば、これらを実行することができる。
 
@@ -133,4 +133,4 @@ GPUにロードされ、推論が実行されたあと、GPUは解放される�
 
 ここでは、Flaskを使って、エンドポイントを立ち上げておく。
 
-# API
+## API

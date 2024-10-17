@@ -133,4 +133,8 @@ GPUにロードされ、推論が実行されたあと、GPUは解放される�
 
 ここでは、Flaskを使って、エンドポイントを立ち上げておく。
 
-## API
+## Results
+ヒトのNCBI GeneのSummaryを、各LLMを用いて和訳した。一方で、10個の遺伝子について、キュレーションされた和訳も作成し、各モデルの出力との違いを定量的に評価した。
+差分の可視化にはJavaScriptのjsdiffを用い、距離の計算にはPythonのLevenshteinライブラリを用いた。
+
+![levenshtein 2024-10-01](https://github.com/user-attachments/assets/b5ca15c6-a199-4664-8a07-8ea319ad8b26)

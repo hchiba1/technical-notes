@@ -1,4 +1,4 @@
 remote_theme: jekyll/minima
 url: "https://hchiba1.github.io/technical-notes/"
-baseurl: ""
+baseurl: "/technical-notes"
 title: 技術ノート
